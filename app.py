@@ -20,6 +20,6 @@ etl_manager.etl_grid_coordinates()
 # ETL components by coordinates
 etl_manager.etl_grid_components_by_coordinates()
 
-# ETL surface temperatures by coordinates
-etl_manager.etl_surface_temperature_by_coordinates()
+# ETL surface temperatures by coordinates and decades
+etl_manager.etl_surface_temperature_by_coordinates_and_decades()
     

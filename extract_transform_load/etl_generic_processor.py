@@ -28,7 +28,7 @@ class ETLGenericProcessor(ETLProcessorBase):
             processed_file_absolute_path = root_path + "/" + processed_file 
 
             # Print etl begin message
-            self.print_etl_begin(source_file_absolute_path, processed_file_absolute_path, columns_to_be_extracted)
+            self.print_etl_begin(source_file_absolute_path, processed_file_absolute_path, columns_to_be_extracted, normalized_columns_header_names)
 
             # Load the source file
             extracted_data_frames = pd.read_csv(source_file_absolute_path, usecols=columns_to_be_extracted)

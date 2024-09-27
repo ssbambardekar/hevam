@@ -32,7 +32,7 @@ class ETLSurfacetemperatureProcessor(ETLProcessorBase):
             normalized_columns_header_names = [Constants.LATITUDE_HEADER_NAME, Constants.LONGITUDE_HEADER_NAME, Constants.SURFACE_TEMPERATURE_HEADER_NAME]
 
             # Print etl begin message
-            self.print_etl_begin(source_file_absolute_path, processed_file_absolute_path, columns_to_be_extracted)
+            self.print_etl_begin(source_file_absolute_path, processed_file_absolute_path, columns_to_be_extracted, normalized_columns_header_names)
 
             # Load the source file. Note that the source file has spaces as separators instead of comma
             # So specify the separator when reading the file, else the selective columns will not be extracted

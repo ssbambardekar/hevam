@@ -26,12 +26,13 @@ class ETLProcessorBase:
             return data_frames
         
     # Print etl begin message
-    def print_etl_begin(self, source_file_absolute_path, processed_file_absolute_path, columns_to_be_extracted):
+    def print_etl_begin(self, source_file_absolute_path, processed_file_absolute_path, columns_to_be_extracted, normalized_columns_header_names):
         print("Starting ETL Processing")
         print("Source File: ", source_file_absolute_path)
         print("Processed File: ", processed_file_absolute_path)
         print("Columns For Extraction: ", columns_to_be_extracted)
-    
+        print("Columns Headers For Normalization: ", normalized_columns_header_names)
+            
     # Print etl end message
     def print_etl_end(self):
         print("ETL Processing Completed")            
