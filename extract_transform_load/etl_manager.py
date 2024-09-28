@@ -8,6 +8,7 @@ sys.path.insert(0, root_path)
 
 from etl_generic_processor import ETLGenericProcessor
 from etl_surface_temperature_processor import ETLSurfacetemperatureProcessor
+from etl_state_processor import ETLStateProcessor
 from constants import Constants
 
 
@@ -17,6 +18,7 @@ class ETLManager:
     def __init__(self) -> None:
         self.etl_generic_processor = ETLGenericProcessor()
         self.etl_surface_temperature_processor = ETLSurfacetemperatureProcessor()
+        self.etl_state_processor = ETLStateProcessor()
 
     # ETL grid coordinates
     def etl_grid_coordinates(self):                
@@ -50,3 +52,11 @@ class ETLManager:
 
             # Process the surface temperature file
             self.etl_surface_temperature_processor.process_file(source_file, processed_file)
+
+    # ETL state by coordinates
+    def etl_state_by_coordinates(self):
+        source_file = Constants.GRID_MAPPING_SOURCE_FILE
+        processed_file = Constants.GRID_STATES_BY_COORDINATES_PROCESSED_FILE
+
+        # Process the grid coordinates file
+        self.etl_state_processor.process_file(source_file, processed_file)

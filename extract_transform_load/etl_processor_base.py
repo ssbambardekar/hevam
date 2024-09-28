@@ -5,7 +5,7 @@ class ETLProcessorBase:
         pass
 
     # Normalize data frames    
-    def normalize_data_frames(self, data_frames, data_frame_columns, data_frame_column_headers):        
+    def _normalize_data_frames(self, data_frames, data_frame_columns, data_frame_column_headers):        
         try:
             # Reorder the columns as specified
             normalized_data_frames = data_frames[data_frame_columns]
@@ -26,18 +26,18 @@ class ETLProcessorBase:
             return data_frames
         
     # Print etl begin message
-    def print_etl_begin(self, source_file_absolute_path, processed_file_absolute_path, columns_to_be_extracted, normalized_columns_header_names):
-        print("Starting ETL Processing")
+    def _print_etl_begin(self, source_file_absolute_path, processed_file_absolute_path, columns_to_be_extracted, normalized_columns_header_names):
+        print("Starting ETL Processing...")
         print("Source File: ", source_file_absolute_path)
         print("Processed File: ", processed_file_absolute_path)
         print("Columns For Extraction: ", columns_to_be_extracted)
         print("Columns Headers For Normalization: ", normalized_columns_header_names)
             
     # Print etl end message
-    def print_etl_end(self):
+    def _print_etl_end(self):
         print("ETL Processing Completed")            
 
     # Print etl error message
-    def print_etl_error(self, error):
+    def _print_etl_error(self, error):
         print("ETL Processing Error: ", error)
     

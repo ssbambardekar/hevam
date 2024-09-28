@@ -32,14 +32,14 @@ class ETLSurfacetemperatureProcessor(ETLProcessorBase):
             normalized_columns_header_names = [Constants.LATITUDE_HEADER_NAME, Constants.LONGITUDE_HEADER_NAME, Constants.SURFACE_TEMPERATURE_HEADER_NAME]
 
             # Print etl begin message
-            self.print_etl_begin(source_file_absolute_path, processed_file_absolute_path, columns_to_be_extracted, normalized_columns_header_names)
+            self._print_etl_begin(source_file_absolute_path, processed_file_absolute_path, columns_to_be_extracted, normalized_columns_header_names)
 
             # Load the source file. Note that the source file has spaces as separators instead of comma
             # So specify the separator when reading the file, else the selective columns will not be extracted
             extracted_data_frames = pd.read_csv(source_file_absolute_path, sep="\s+", usecols=columns_to_be_extracted)
 
             # Normalize the data frames
-            extracted_data_frames = self.normalize_data_frames(extracted_data_frames, columns_to_be_extracted, normalized_columns_header_names)
+            extracted_data_frames = self._normalize_data_frames(extracted_data_frames, columns_to_be_extracted, normalized_columns_header_names)
 
             # The longitude column is in degree_east unit. Normalize it by converting it 
             # into degrees_west unit, to match the grid coordinates
@@ -53,9 +53,9 @@ class ETLSurfacetemperatureProcessor(ETLProcessorBase):
             extracted_data_frames.to_csv(processed_file_absolute_path, index=False)
 
             # Print etl end message
-            self.print_etl_end()
+            self._print_etl_end()
         except Exception as error:
-            self.print_etl_error(error)
+            self._print_etl_error(error)
 
 
 # Debug Code

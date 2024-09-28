@@ -15,12 +15,16 @@ class Constants:
     # Grid components by coordinates processed file name, relative to the root data folder
     GRID_COMPONENTS_BY_COORDINATES_PROCESSED_FILE = "/data/processed/grid_components_by_coordinates.csv"
 
-    # CMIP Data surface temperature processed folder name, relative to the root data folder
+    # CMIP data surface temperature processed folder name, relative to the root data folder
     SURFACE_TEMPERATURES_BY_COORDINATES_PROCESSED_FOLDER = "/data/processed"
+
+    # Grid states by coordinates processed file name, relative to the root data folder 
+    GRID_STATES_BY_COORDINATES_PROCESSED_FILE = "/data/processed/grid_states_by_coordinates.csv"
 
     # Data points names
     LATITUDE_HEADER_NAME = "Latitude"
     LONGITUDE_HEADER_NAME = "Longitude"
     POWER_GRID_COMPONENT_HEADER_NAME = "Power Grid Component"
     SURFACE_TEMPERATURE_HEADER_NAME = "Surface Temperature"
+    STATE_HEADER_NAME = "State"
     
