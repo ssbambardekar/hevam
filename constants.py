@@ -33,6 +33,10 @@ class Constants:
     # Data points names
     LATITUDE_HEADER_NAME = "Latitude"
     LONGITUDE_HEADER_NAME = "Longitude"
+    SUBSTATION_LATITUDE_HEADER_NAME = "Substation Latitude"
+    SUBSTATION_LONGITUDE_HEADER_NAME = "Substation Longitude"
+    CMIP_DATA_LATITUDE_HEADER_NAME = "CMIP Data Latitude"
+    CMIP_DATA_LONGITUDE_HEADER_NAME = "CMIP Data Longitude"    
     POWER_GRID_COMPONENT_HEADER_NAME = "Power Grid Component"
     DAILY_MAX_TEMPERATURE_HEADER_NAME = "Daily Max Temperature"
     TIME_HEADER_NAME = "Time"
