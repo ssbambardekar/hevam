@@ -13,15 +13,15 @@ from etl_manager import ETLManager
 # Create Etl manager
 etl_manager = ETLManager()
 
-# Steps
-# ETL grid coordinates
-etl_manager.etl_grid_coordinates()
+# Steps - NOTE: The order of steps matters, as processed files of some steps serve as inputs to the next steps
+# ETL daily max temperatures
+etl_manager.etl_daily_max_temperature()
 
-# ETL grid components by coordinates
-etl_manager.etl_grid_components_by_coordinates()
+# ETL power grids
+etl_manager.etl_power_grids()
 
-# ETL surface temperatures by coordinates and decades
-etl_manager.etl_surface_temperature_by_coordinates_and_decades()
-    
-# ETL grid states by coordinates
-etl_manager.etl_state_by_coordinates()    
+# ETL Substations
+etl_manager.etl_substations()
+
+# ETL Substations States
+etl_manager.etl_substations_states()

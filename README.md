@@ -2,8 +2,8 @@
 
 
 ## File naming conventions
-- grid_coordinates
-- grid_coordinates_components
+- substation_coordinates (substation coordinates)
+- grid_coordinates_components 
 
 - grid_coordinates_states
 - grid_coordinates_temperature_decade_2030

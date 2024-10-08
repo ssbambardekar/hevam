@@ -1,4 +1,10 @@
+#Imports
+import pandas as pd
+pd.options.mode.chained_assignment = None  # default='warn'; do not care about chained assignments warning "A value is trying to be set on a copy of a slice from a DataFrame"
+
+
 # ETL Processor Base Class
+# Holds common methods for all processors
 class ETLProcessorBase:
     # Constructor
     def __init__(self) -> None:

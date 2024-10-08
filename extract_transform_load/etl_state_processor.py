@@ -14,13 +14,15 @@ from constants import Constants
 from etl_processor_base import ETLProcessorBase
 from state_coordinates_map import StateCoordinatesMap
 
+
 # ETL State Processor Class
+# Extracts and normalizes substation data to add states and generate processed file `substations_states.csv`
 class ETLStateProcessor(ETLProcessorBase):
     # Constructor
     def __init__(self) -> None:
         self.state_coordinates_map = StateCoordinatesMap()
 
-    # Perform generic etl on the given file    
+    # Perform state and coordinates etl on the given file    
     def process_file(self, source_file, processed_file):        
         try:
             # Set the paths            
@@ -74,5 +76,5 @@ class ETLStateProcessor(ETLProcessorBase):
 # Debug Code
 if __name__ == "__main__":
     etl_state_processor = ETLStateProcessor()
-    source_file = Constants.GRID_MAPPING_SOURCE_FILE
+    source_file = Constants.SUBSTATIONS_PROCESSED_FILE
     etl_state_processor.process_file(source_file, "/data/processed/test_state_by_coordinates.csv")
