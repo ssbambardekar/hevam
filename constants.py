@@ -29,6 +29,8 @@ class Constants:
 
     # Substations cmip data coordinates processed file name, relative to the root data folder 
     SUBSTATION_CMIP_DATA_COORDINATES_PROCESSED_FILE = "/data/processed/generated/substations_cmip_data_coordinates.csv"
+
+    #SUBSTATION_EXPOSURE_ANALYZED_FILE = "/data/processed/analyzed/substations_exposure_2025.csv"
    
     # Data points names
     LATITUDE_HEADER_NAME = "Latitude"
