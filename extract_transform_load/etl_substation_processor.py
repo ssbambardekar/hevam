@@ -18,7 +18,7 @@ from etl_processor_base import ETLProcessorBase
 # Extracts and normalizes substation data to generate processed file `substations.csv`
 class ETLSubstationProcessor(ETLProcessorBase):
     # Constructor
-    def __init__(self) -> None:
+    def __init__(self):
         pass
 
     # Perform substation etl on the given file    
@@ -65,4 +65,4 @@ class ETLSubstationProcessor(ETLProcessorBase):
 if __name__ == "__main__":
     etl_substation_processor = ETLSubstationProcessor()
     source_substation_mapping_file = Constants.SUBSTATIONS_SOURCE_FILE    
-    etl_substation_processor.process_file(source_substation_mapping_file, "/data/processed/test_substation_coordinates.csv")
+    etl_substation_processor.process_file(source_substation_mapping_file, "/data/processed/generated/test_substation_coordinates.csv")

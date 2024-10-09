@@ -7,7 +7,7 @@ pd.options.mode.chained_assignment = None  # default='warn'; do not care about c
 # Holds common methods for all processors
 class ETLProcessorBase:
     # Constructor
-    def __init__(self) -> None:
+    def __init__(self):
         pass
 
     # Normalize data frames    

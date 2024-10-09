@@ -10,7 +10,7 @@ sys.path.insert(0, etl_module_path)
 from etl_manager import ETLManager
 
 
-# Create Etl manager
+# Create etl manager
 etl_manager = ETLManager()
 
 # Steps - NOTE: The order of steps matters, as processed files of some steps serve as inputs to the next steps
@@ -25,3 +25,6 @@ etl_manager.etl_substations()
 
 # ETL Substations States
 etl_manager.etl_substations_states()
+
+# ETL substations cmip data coordinates
+etl_manager.etl_substations_cmip_data_coordinates()

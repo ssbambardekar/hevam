@@ -19,7 +19,7 @@ from state_coordinates_map import StateCoordinatesMap
 # Extracts and normalizes substation data to add states and generate processed file `substations_states.csv`
 class ETLStateProcessor(ETLProcessorBase):
     # Constructor
-    def __init__(self) -> None:
+    def __init__(self):
         self.state_coordinates_map = StateCoordinatesMap()
 
     # Perform state and coordinates etl on the given file    
@@ -58,7 +58,7 @@ class ETLStateProcessor(ETLProcessorBase):
         matching_state = ""
         nearest_distance_squared = sys.maxsize
 
-        for state_coordinates in self.state_coordinates_map.states_by_coordinates:            
+        for state_coordinates in self.state_coordinates_map.state_coordinates:            
             # Use the distance formula: (x2-x1)^2 + (y2-y1)^2
             # We do not need to square root it to save some cpu cycles, we just care about the closest point            
             dx = state_coordinates.latitude - data_frame[Constants.LATITUDE_HEADER_NAME]
@@ -77,4 +77,4 @@ class ETLStateProcessor(ETLProcessorBase):
 if __name__ == "__main__":
     etl_state_processor = ETLStateProcessor()
     source_file = Constants.SUBSTATIONS_PROCESSED_FILE
-    etl_state_processor.process_file(source_file, "/data/processed/test_state_by_coordinates.csv")
+    etl_state_processor.process_file(source_file, "/data/processed/generated/test_state_by_coordinates.csv")

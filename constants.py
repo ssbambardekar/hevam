@@ -7,28 +7,28 @@ class Constants:
     CMIP_DATA_DAILY_MAX_TEMPERATURE_SOURCE_FOLDER = "/data/source/cmip_data/daily_max_temperature"
 
     # CMIP data daily max temperature processed folder name, relative to the root data folder
-    CMIP_DATA_DAILY_MAX_TEMPERATURE_PROCESSED_FOLDER = "/data/processed"
+    CMIP_DATA_DAILY_MAX_TEMPERATURE_PROCESSED_FOLDER = "/data/processed/generated"
 
     # Substations source file, relative to the root data folder
     SUBSTATIONS_SOURCE_FILE = "/data/source/power grid data/substations.json"
 
     # Substations processed file name, relative to the root data folder
-    SUBSTATIONS_PROCESSED_FILE = "/data/processed/substations.csv"
+    SUBSTATIONS_PROCESSED_FILE = "/data/processed/generated/substations.csv"
 
     # Power grids source file name, relative to the root data folder
     POWER_GRIDS_SOURCE_FILE = "/data/source/power grid data/grid_mapping.csv"
 
     # Power grid processed file name, relative to the root data folder
-    POWER_GRIDS_PROCESSED_FILE = "/data/processed/power_grids.csv"
+    POWER_GRIDS_PROCESSED_FILE = "/data/processed/generated/power_grids.csv"
     
     # Substation state processed file name, relative to the root data folder 
-    SUBSTATION_STATES_PROCESSED_FILE = "/data/processed/substations_states.csv"
+    SUBSTATION_STATES_PROCESSED_FILE = "/data/processed/generated/substations_states.csv"
 
+    # CMIP data daily max temperature 2025 processed file name, relative to the root data folder 
+    CMIP_DATA_DAILY_MAX_TEMPERATURE_2025_PROCESSED_FILE = "/data/processed/generated/cmip_data_daily_max_temperatures_2025.csv"
 
-
-    # Grid components by coordinates processed file name, relative to the root data folder
-    GRID_COMPONENTS_BY_COORDINATES_PROCESSED_FILE = "/data/processed/grid_components_by_coordinates.csv"
-
+    # Substations cmip data coordinates processed file name, relative to the root data folder 
+    SUBSTATION_CMIP_DATA_COORDINATES_PROCESSED_FILE = "/data/processed/generated/substations_cmip_data_coordinates.csv"
    
     # Data points names
     LATITUDE_HEADER_NAME = "Latitude"

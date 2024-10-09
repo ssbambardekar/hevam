@@ -18,7 +18,7 @@ from etl_processor_base import ETLProcessorBase
 # Extracts and maps substation to cmip data coordinates, to generate processed file `substations_cmip_data_coordinates.csv`
 class ETLSubstationCmipDataCoordinatesProcessor(ETLProcessorBase):
     # Constructor
-    def __init__(self) -> None:
+    def __init__(self):
         pass
 
     # Perform substations temperatures etl on the given file    
@@ -92,4 +92,4 @@ if __name__ == "__main__":
     etl_substation_cmip_data_coordinates_processor = ETLSubstationCmipDataCoordinatesProcessor()
     source_substation_file = Constants.SUBSTATIONS_PROCESSED_FILE
     source_cmip_data_file = "data/processed/cmip_data_daily_max_temperatures_2025.csv"                                            
-    etl_substation_cmip_data_coordinates_processor.process_file(source_substation_file, source_cmip_data_file, "/data/processed/test_substation_cmip_data_coordinates.csv")
+    etl_substation_cmip_data_coordinates_processor.process_file(source_substation_file, source_cmip_data_file, "/data/processed/generated/test_substation_cmip_data_coordinates.csv")

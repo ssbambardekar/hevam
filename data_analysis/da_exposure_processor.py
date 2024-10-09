@@ -11,12 +11,10 @@ else:
 sys.path.insert(0, root_path)
 
 from constants import Constants
-from etl_processor_base import ETLProcessorBase
 
 
-# ETL Power Grid Processor Class
-# Extracts and normalizes grid mapping data to generate processed file `power_grids.csv`
-class ETLPowerGridProcessor(ETLProcessorBase):
+# DA Exposure Processor Class
+class DAExposureProcessor:
     # Constructor
     def __init__(self):
         pass

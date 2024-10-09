@@ -18,7 +18,7 @@ from etl_processor_base import ETLProcessorBase
 # Extracts and normalizes cmip data to generate processed file `cmip_data_daily_max_temperature_<Year>.csv`
 class ETLDailyMaxTemperatureProcessor(ETLProcessorBase):
     # Constructor
-    def __init__(self) -> None:
+    def __init__(self):
         pass
 
     # Perform surface temperature and coordinates etl on the given file    
@@ -63,4 +63,4 @@ class ETLDailyMaxTemperatureProcessor(ETLProcessorBase):
 if __name__ == "__main__":
     etl_surface_temperature_processor = ETLDailyMaxTemperatureProcessor()
     source_file = Constants.CMIP_DATA_DAILY_MAX_TEMPERATURE_SOURCE_FOLDER + "/daily_max_temperature_2025.csv"
-    etl_surface_temperature_processor.process_file(source_file, "/data/processed/test_daily_max_temperature.csv")
+    etl_surface_temperature_processor.process_file(source_file, "/data/processed/generated/test_daily_max_temperature.csv")
