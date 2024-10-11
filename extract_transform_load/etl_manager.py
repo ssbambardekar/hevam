@@ -32,7 +32,7 @@ class ETLManager:
 
         for cmip_data_daily_max_temperature_source_file in cmip_data_daily_max_temperature_source_files:            
             source_file = Constants.CMIP_DATA_DAILY_MAX_TEMPERATURE_SOURCE_FOLDER + "/" + cmip_data_daily_max_temperature_source_file
-            processed_file = Constants.CMIP_DATA_DAILY_MAX_TEMPERATURE_PROCESSED_FOLDER + "/" + cmip_data_daily_max_temperature_source_file.replace("daily_max_temperatures", "cmip_data_daily_max_temperatures")
+            processed_file = Constants.CMIP_DATA_DAILY_MAX_TEMPERATURE_PROCESSED_FOLDER + "/" + cmip_data_daily_max_temperature_source_file.replace(Constants.FILE_NAME_PREFIX_DAILY_MAX_TEMPERATURE, Constants.FILE_NAME_PREFIX_CMIP_DATA_DAILY_MAX_TEMPERATURE)
 
             # Process the surface temperature file
             self.etl_daily_max_temperature_processor.process_file(source_file, processed_file)
