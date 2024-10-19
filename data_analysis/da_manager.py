@@ -28,6 +28,24 @@ class DAManager:
         cmip_data_daily_max_temperature_source_files = []
         for file_name in os.listdir(cmip_data_daily_max_temperature_source_folder_absolute_path):
             if (file_name.startswith(Constants.FILE_NAME_PREFIX_CMIP_DATA_DAILY_MAX_TEMPERATURE)):
+                source_file = Constants.CMIP_DATA_DAILY_MAX_TEMPERATURE_PROCESSED_FOLDER + "/" + file_name
+                cmip_data_daily_max_temperature_source_files.append(source_file)
+
+        # Process the cmip data daily max temperatue files
+        analyzed_file = Constants.CMIP_DATA_DAILY_MAX_TEMPERATURE_ANALYZED_FOLDER + "/" + "analyzed_file_name.csv"
+
+        self.da_substation_exposure_processor.process_files(cmip_data_daily_max_temperature_source_files, analyzed_file, threshold_temperature)
+
+
+           
+
+     # DA substation exposure
+    def da_substations_exposure_old(self, threshold_temperature):
+        # Get all the cmip data daily max temperature related files from the requisite source folder   
+        cmip_data_daily_max_temperature_source_folder_absolute_path = root_path + "/" + Constants.CMIP_DATA_DAILY_MAX_TEMPERATURE_PROCESSED_FOLDER
+        cmip_data_daily_max_temperature_source_files = []
+        for file_name in os.listdir(cmip_data_daily_max_temperature_source_folder_absolute_path):
+            if (file_name.startswith(Constants.FILE_NAME_PREFIX_CMIP_DATA_DAILY_MAX_TEMPERATURE)):
                 cmip_data_daily_max_temperature_source_files.append(file_name)
 
         for cmip_data_daily_max_temperature_source_file in cmip_data_daily_max_temperature_source_files:            
@@ -40,5 +58,5 @@ class DAManager:
             analyzed_file = Constants.CMIP_DATA_DAILY_MAX_TEMPERATURE_ANALYZED_FOLDER + "/" + analyzed_file_name
             
             # Process the cmip data daily max temperatue file
-            self.da_substation_exposure_processor.process_file(source_file, analyzed_file, threshold_temperature)
+            self.da_substation_exposure_processor.process_file(source_file, analyzed_file, threshold_temperature)        
 
