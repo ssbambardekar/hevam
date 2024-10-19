@@ -23,7 +23,7 @@ class DASubstationExposureProcessor(DAProcessorBase):
         self.substation_cmip_data_coordinates_map = substation_cmip_data_coordinates_map
 
     # Perform exposure analysis on the source files    
-    def process_files(self, source_files, analyzed_file, threshold_temperature):        
+    def process_files(self, source_files, analyzed_file, threshold_temperature, exposure_operation):        
         try:
             # Set the column headers
             substation_exposure_columns_header_names = [Constants.LATITUDE_HEADER_NAME, Constants.LONGITUDE_HEADER_NAME]
@@ -50,12 +50,19 @@ class DASubstationExposureProcessor(DAProcessorBase):
 
                 # Iterate through each source data frames
                 for cmip_data_frames in cmip_data_frames_list:
-                    # Get the number of days that the temperature is above the threshold temperature
-                    exposure_number_of_days = len(cmip_data_frames[
-                                                (cmip_data_frames[Constants.LATITUDE_HEADER_NAME] == substation_cmip_data_coordinates.cmip_data_latitude) & 
-                                                (cmip_data_frames[Constants.LONGITUDE_HEADER_NAME] == substation_cmip_data_coordinates.cmip_data_longitude) & 
-                                                (cmip_data_frames[Constants.DAILY_MAX_TEMPERATURE_HEADER_NAME] >= threshold_temperature)])
-                
+                    if exposure_operation == Constants.EXPOSURE_OPERATION_GREATER_THAN:
+                        # Get the number of days that the temperature is above the threshold temperature
+                        exposure_number_of_days = len(cmip_data_frames[
+                                                    (cmip_data_frames[Constants.LATITUDE_HEADER_NAME] == substation_cmip_data_coordinates.cmip_data_latitude) & 
+                                                    (cmip_data_frames[Constants.LONGITUDE_HEADER_NAME] == substation_cmip_data_coordinates.cmip_data_longitude) & 
+                                                    (cmip_data_frames[Constants.DAILY_MAX_TEMPERATURE_HEADER_NAME] >= threshold_temperature)])
+                    else:
+                        # Get the number of days that the temperature is below the threshold temperature
+                        exposure_number_of_days = len(cmip_data_frames[
+                                                    (cmip_data_frames[Constants.LATITUDE_HEADER_NAME] == substation_cmip_data_coordinates.cmip_data_latitude) & 
+                                                    (cmip_data_frames[Constants.LONGITUDE_HEADER_NAME] == substation_cmip_data_coordinates.cmip_data_longitude) & 
+                                                    (cmip_data_frames[Constants.DAILY_MAX_TEMPERATURE_HEADER_NAME] <= threshold_temperature)])
+                        
                     substation_exposure.append(exposure_number_of_days)
 
                 # Add the substation exposure data to the list

@@ -3,6 +3,12 @@ class Constants:
     # Version
     VERSION = "1.0.0"
 
+    # Exposure operation = greater than
+    EXPOSURE_OPERATION_GREATER_THAN = "gt"
+
+    # Exposure operation = less than
+    EXPOSURE_OPERATION_LESS_THAN = "lt"
+
     # CMIP data daily max temperature source folder name
     CMIP_DATA_DAILY_MAX_TEMPERATURE_SOURCE_FOLDER = "/data/source/cmip_data/daily_max_temperature"
 
