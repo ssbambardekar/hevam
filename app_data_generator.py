@@ -10,21 +10,33 @@ sys.path.insert(0, etl_module_path)
 from etl_manager import ETLManager
 
 
-# Create etl manager
-etl_manager = ETLManager()
+# Generate data
+def generate_data():
+    print("Starting Data Generation...")
 
-# Steps - NOTE: The order of steps matters, as processed files of some steps serve as inputs to the next steps
-# ETL daily max temperatures
-etl_manager.etl_daily_max_temperature()
+    # Create etl manager
+    etl_manager = ETLManager()
 
-# ETL power grids
-etl_manager.etl_power_grids()
+    # Steps - NOTE: The order of steps matters, as processed files of some steps serve as inputs to the next steps
+    # ETL daily max temperatures
+    etl_manager.etl_daily_max_temperature()
 
-# ETL Substations
-etl_manager.etl_substations()
+    # ETL power grids
+    etl_manager.etl_power_grids()
 
-# ETL Substations States
-etl_manager.etl_substations_states()
+    # ETL Substations
+    etl_manager.etl_substations()
 
-# ETL substations cmip data coordinates
-etl_manager.etl_substations_cmip_data_coordinates()
+    # ETL Substations States
+    etl_manager.etl_substations_states()
+
+    # ETL substations cmip data coordinates
+    etl_manager.etl_substations_cmip_data_coordinates()
+
+    print("Data Generation Completed.")
+
+
+# Execute the app generator if this is main run
+if __name__ == "__main__":
+    print("Welcome to Hevam App!")
+    generate_data()

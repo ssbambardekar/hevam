@@ -32,6 +32,6 @@ class DAManager:
                 cmip_data_daily_max_temperature_source_files.append(source_file)
 
         # Process the cmip data daily max temperatue files
-        analyzed_file = Constants.CMIP_DATA_DAILY_MAX_TEMPERATURE_ANALYZED_FOLDER + "/" + "analyzed_file_name.csv"
+        analyzed_file = Constants.CMIP_DATA_DAILY_MAX_TEMPERATURE_ANALYZED_FOLDER + "/" + Constants.FILE_NAME_PREFIX_SUBSTATION_EXPOSURE_THRESHOLD_TEMPERATURE + exposure_operation + "_" + str(threshold_temperature) + ".csv"
 
         self.da_substation_exposure_processor.process_files(cmip_data_daily_max_temperature_source_files, analyzed_file, threshold_temperature, exposure_operation)
