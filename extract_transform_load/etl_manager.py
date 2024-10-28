@@ -63,7 +63,7 @@ class ETLManager:
 
     # ETL substations cmip data coordinates
     def etl_substations_cmip_data_coordinates(self):
-        source_substation_file = Constants.SUBSTATIONS_PROCESSED_FILE
+        source_substation_file = Constants.SUBSTATION_STATES_PROCESSED_FILE
         source_cmip_data_file = Constants.CMIP_DATA_DAILY_MAX_TEMPERATURE_2025_PROCESSED_FILE
         processed_file = Constants.SUBSTATION_CMIP_DATA_COORDINATES_PROCESSED_FILE
 

@@ -22,29 +22,29 @@ class ETLSubstationCmipDataCoordinatesProcessor(ETLProcessorBase):
         pass
 
     # Perform substations temperatures etl on the given file    
-    def process_file(self, source_substation_file, source_cmip_data_file, processed_file):        
+    def process_file(self, source_substation_state_file, source_cmip_data_file, processed_file):        
         try:
             # Set the paths            
-            source_substation_file_absolute_path = root_path + "/" + source_substation_file
+            source_substation_state_file_absolute_path = root_path + "/" + source_substation_state_file
             source_cmip_data_file_absolute_path = root_path + "/" + source_cmip_data_file
             processed_file_absolute_path = root_path + "/" + processed_file 
             
             # Set the columns to be extracted from the source files
-            source_substation_file_columns_to_be_extracted = ["Latitude", "Longitude"]
-            normalized_substation_file_columns_header_names = [Constants.SUBSTATION_LATITUDE_HEADER_NAME, Constants.SUBSTATION_LONGITUDE_HEADER_NAME]
+            source_substation_state_file_columns_to_be_extracted = ["Latitude", "Longitude", "State"]
+            normalized_substation_state_file_columns_header_names = [Constants.SUBSTATION_LATITUDE_HEADER_NAME, Constants.SUBSTATION_LONGITUDE_HEADER_NAME, Constants.SUBSTATION_STATE_HEADER_NAME]
             source_cmip_data_file_columns_to_be_extracted = ["Latitude", "Longitude"]
             normalized_cmip_data_columns_header_names = [Constants.CMIP_DATA_LATITUDE_HEADER_NAME, Constants.CMIP_DATA_LONGITUDE_HEADER_NAME]
 
             # Print etl begin message
             print("Starting ETL Processing of combined substation file and cmip data coordinates file...")
-            self._print_etl_begin(source_substation_file_absolute_path, processed_file_absolute_path, source_substation_file_columns_to_be_extracted, normalized_substation_file_columns_header_names)            
+            self._print_etl_begin(source_substation_state_file_absolute_path, processed_file_absolute_path, source_substation_state_file_columns_to_be_extracted, normalized_substation_state_file_columns_header_names)            
             self._print_etl_begin(source_cmip_data_file_absolute_path, processed_file_absolute_path, source_cmip_data_file_columns_to_be_extracted, normalized_cmip_data_columns_header_names)
 
             # Load the source substation file
-            extracted_substation_data_frames = pd.read_csv(source_substation_file_absolute_path, usecols=source_substation_file_columns_to_be_extracted)
+            extracted_substation_state_data_frames = pd.read_csv(source_substation_state_file_absolute_path, usecols=source_substation_state_file_columns_to_be_extracted)
             
             # Normalize the source substation data frames
-            extracted_substation_data_frames = self._normalize_data_frames(extracted_substation_data_frames, source_substation_file_columns_to_be_extracted, normalized_substation_file_columns_header_names)
+            extracted_substation_state_data_frames = self._normalize_data_frames(extracted_substation_state_data_frames, source_substation_state_file_columns_to_be_extracted, normalized_substation_state_file_columns_header_names)
 
             # Load the source cmip data frames
             extracted_cmip_data_frames = pd.read_csv(source_cmip_data_file_absolute_path, usecols=source_cmip_data_file_columns_to_be_extracted)
@@ -53,10 +53,10 @@ class ETLSubstationCmipDataCoordinatesProcessor(ETLProcessorBase):
             extracted_cmip_data_frames = self._normalize_data_frames(extracted_cmip_data_frames, source_cmip_data_file_columns_to_be_extracted, normalized_cmip_data_columns_header_names)
 
             # Add the cmip data coordinates columns to the substation coordinates
-            extracted_substation_data_frames = extracted_substation_data_frames.apply(lambda df: self._map_coordinates(df, extracted_cmip_data_frames), axis=1)
+            extracted_substation_state_data_frames = extracted_substation_state_data_frames.apply(lambda df: self._map_coordinates(df, extracted_cmip_data_frames), axis=1)
 
             # Save the extracted data to processed file
-            extracted_substation_data_frames.to_csv(processed_file_absolute_path, index=False)
+            extracted_substation_state_data_frames.to_csv(processed_file_absolute_path, index=False)
 
             # Print etl end message
             self._print_etl_end()
@@ -90,6 +90,6 @@ class ETLSubstationCmipDataCoordinatesProcessor(ETLProcessorBase):
 # Debug Code
 if __name__ == "__main__":
     etl_substation_cmip_data_coordinates_processor = ETLSubstationCmipDataCoordinatesProcessor()
-    source_substation_file = Constants.SUBSTATIONS_PROCESSED_FILE
-    source_cmip_data_file = "data/processed/cmip_data_daily_max_temperatures_2025.csv"                                            
+    source_substation_file = Constants.SUBSTATION_STATES_PROCESSED_FILE
+    source_cmip_data_file = "data/processed/generated/cmip_data_daily_max_temperatures_2025.csv"                                            
     etl_substation_cmip_data_coordinates_processor.process_file(source_substation_file, source_cmip_data_file, "/data/processed/generated/test_substation_cmip_data_coordinates.csv")

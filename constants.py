@@ -56,6 +56,7 @@ class Constants:
     LONGITUDE_HEADER_NAME = "Longitude"
     SUBSTATION_LATITUDE_HEADER_NAME = "Substation Latitude"
     SUBSTATION_LONGITUDE_HEADER_NAME = "Substation Longitude"
+    SUBSTATION_STATE_HEADER_NAME = "State"
     CMIP_DATA_LATITUDE_HEADER_NAME = "CMIP Data Latitude"
     CMIP_DATA_LONGITUDE_HEADER_NAME = "CMIP Data Longitude"    
     POWER_GRID_COMPONENT_HEADER_NAME = "Power Grid Component"
