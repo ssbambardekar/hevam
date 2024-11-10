@@ -35,6 +35,7 @@ class SubstationCMIPDataCoordinatesMap:
             substation_cmpi_data_coordinates_key = substation_latitude + ":" + substation_longitude
             substation_cmip_data_coordinates = SubstationCMIPDataCoordinates(extracted_data_frames_row[Constants.SUBSTATION_LATITUDE_HEADER_NAME], 
                                                                              extracted_data_frames_row[Constants.SUBSTATION_LONGITUDE_HEADER_NAME],
+                                                                             extracted_data_frames_row[Constants.SUBSTATION_STATE_HEADER_NAME],
                                                                              extracted_data_frames_row[Constants.CMIP_DATA_LATITUDE_HEADER_NAME],
                                                                              extracted_data_frames_row[Constants.CMIP_DATA_LONGITUDE_HEADER_NAME])
             

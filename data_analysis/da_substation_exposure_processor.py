@@ -26,7 +26,7 @@ class DASubstationExposureProcessor(DAProcessorBase):
     def process_files(self, source_files, analyzed_file, threshold_temperature, exposure_operation):        
         try:
             # Set the column headers
-            substation_exposure_columns_header_names = [Constants.LATITUDE_HEADER_NAME, Constants.LONGITUDE_HEADER_NAME]
+            substation_exposure_columns_header_names = [Constants.LATITUDE_HEADER_NAME, Constants.LONGITUDE_HEADER_NAME, Constants.SUBSTATION_STATE_HEADER_NAME]
                         
             # Load the source files into data frames            
             cmip_data_frames_list = []
@@ -46,7 +46,7 @@ class DASubstationExposureProcessor(DAProcessorBase):
             substation_exposure_list = []
             for substation_cmip_data_coordinates in self.substation_cmip_data_coordinates_map.substation_cmpi_data_coordinates.values():
                 # Create the substation exposure list that will represent a row in the data frame
-                substation_exposure = [substation_cmip_data_coordinates.substation_latitude, substation_cmip_data_coordinates.substation_longitude]
+                substation_exposure = [substation_cmip_data_coordinates.substation_latitude, substation_cmip_data_coordinates.substation_longitude, substation_cmip_data_coordinates.substation_state]
 
                 # Iterate through each source data frames
                 for cmip_data_frames in cmip_data_frames_list:
